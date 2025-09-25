@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,7 +41,7 @@ class BusinessInsights:
     
     def create_cluster_profiles(self):
         """Create detailed cluster profiles with business characteristics."""
-        print("\n=== CREATING CLUSTER PROFILES ===")
+        print("\nCreating cluster profiles")
         
         # Create comprehensive profile DataFrame
         df_profile = pd.DataFrame(self.X_train_pca, columns=[f'PC{i+1}' for i in range(self.X_train_pca.shape[1])])
@@ -83,7 +82,7 @@ class BusinessInsights:
     
     def map_clusters_to_actions(self):
         """Map each cluster to specific business actions and strategies."""
-        print("\n=== MAPPING CLUSTERS TO BUSINESS ACTIONS ===")
+        print("\nMapping clusters to business actions")
         
         business_actions = {}
         
@@ -188,7 +187,7 @@ class BusinessInsights:
     
     def estimate_business_impact(self):
         """Estimate the business impact of implementing cluster-based strategies."""
-        print("\n=== ESTIMATING BUSINESS IMPACT ===")
+        print("\nEstimating business impact")
         
         # Assume base metrics (these would come from actual airline data)
         base_passengers = len(self.train_df)
@@ -251,7 +250,7 @@ class BusinessInsights:
     
     def validate_insights(self):
         """Validate insights with back-testing and practicality checks."""
-        print("\n=== VALIDATING INSIGHTS ===")
+        print("\nValidating insights")
         
         # 1. Back-test with satisfaction distribution
         print("1. Satisfaction Distribution Validation:")
@@ -305,7 +304,7 @@ class BusinessInsights:
     
     def create_executive_summary(self):
         """Create executive one-pager with key insights and recommendations."""
-        print("\n=== CREATING EXECUTIVE SUMMARY ===")
+        print("\nCreating executive summary")
         
         # Create one-pager content
         summary = f"""
@@ -400,7 +399,7 @@ Segment airline passengers to tailor experiences and offers, improving satisfact
     
     def create_visualizations(self):
         """Create comprehensive visualizations for business insights."""
-        print("\n=== CREATING BUSINESS VISUALIZATIONS ===")
+        print("\nCreating business visualizations")
         
         # 1. Cluster satisfaction comparison
         plt.figure(figsize=(12, 8))
