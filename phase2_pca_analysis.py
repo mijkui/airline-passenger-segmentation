@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,7 +52,7 @@ class PCAAnalysis:
     
     def fit_pca(self, n_components=None):
         """Fit PCA on standardized features."""
-        print(f"\n=== FITTING PCA ===")
+        print(f"\nFitting PCA")
         
         # Fit PCA
         self.pca = PCA(n_components=n_components, random_state=42)
@@ -70,7 +69,7 @@ class PCAAnalysis:
     
     def create_scree_plot(self):
         """Create scree plot and cumulative explained variance plot."""
-        print("\n=== CREATING SCREE PLOT ===")
+        print("\nCreating Scree plot")
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
         
@@ -119,7 +118,7 @@ class PCAAnalysis:
     
     def parallel_analysis(self, n_iterations=100):
         """Perform parallel analysis to determine optimal number of components."""
-        print("\n=== PARALLEL ANALYSIS ===")
+        print("\nParallel Analysis")
         
         n_samples, n_features = self.X_train.shape
         random_eigenvalues = []
@@ -165,7 +164,7 @@ class PCAAnalysis:
     
     def determine_optimal_components(self):
         """Determine optimal number of components using multiple methods."""
-        print("\n=== DETERMINING OPTIMAL COMPONENTS ===")
+        print("\nDetermining optimal components")
         
         # First fit PCA with all components to get scree plot
         self.fit_pca()
@@ -191,7 +190,7 @@ class PCAAnalysis:
     
     def analyze_loadings(self, feature_names):
         """Analyze component loadings to interpret and name PCs."""
-        print(f"\n=== ANALYZING LOADINGS ===")
+        print(f"\nAnalyzing loadings")
         
         # Get loadings (components)
         self.loadings = self.pca.components_.T
@@ -246,7 +245,7 @@ class PCAAnalysis:
     
     def create_loadings_heatmap(self, loadings_df, component_names):
         """Create loadings heatmap with component names."""
-        print("\n=== CREATING LOADINGS HEATMAP ===")
+        print("\nCreating loading heatmap")
         
         # Create heatmap
         plt.figure(figsize=(12, 8))
@@ -279,7 +278,7 @@ class PCAAnalysis:
     
     def validate_pca(self):
         """Validate PCA with reconstruction error and stability analysis."""
-        print("\n=== VALIDATING PCA ===")
+        print("\nValidating PCA")
         
         # 1. Reconstruction error analysis
         print("1. Reconstruction Error Analysis:")
@@ -355,7 +354,7 @@ class PCAAnalysis:
     
     def create_biplot(self, feature_names, component_names):
         """Create biplot showing PC1 vs PC2 with loading vectors."""
-        print("\n=== CREATING BIPLOT ===")
+        print("\nCreating Biplot")
         
         # Transform data
         X_train_pca = self.pca.transform(self.X_train)
@@ -389,7 +388,7 @@ class PCAAnalysis:
     
     def check_outliers(self):
         """Check for outliers using Mahalanobis distance in PC space."""
-        print("\n=== OUTLIER DETECTION ===")
+        print("\nOutlier detection")
         
         # Transform data to PC space
         X_train_pca = self.pca.transform(self.X_train)
@@ -452,7 +451,7 @@ class PCAAnalysis:
     
     def create_feature_contributions_plot(self, loadings_df, component_names):
         """Create bar chart of absolute loadings for top components."""
-        print("\n=== CREATING FEATURE CONTRIBUTIONS PLOT ===")
+        print("\nCreating feature contributions plot")
         
         # Select top 2 components for detailed analysis
         n_components_to_plot = min(2, self.n_components)
@@ -530,7 +529,7 @@ class PCAAnalysis:
     def _generate_summary_report(self, component_names, reconstruction_errors, 
                                stability_scores, correlations, outliers):
         """Generate comprehensive summary report."""
-        print("\n=== PCA ANALYSIS SUMMARY ===")
+        print("\nPCA analysis summary")
         
         print(f"Selected Components: {self.n_components}")
         print(f"Total Explained Variance: {self.cumulative_variance[self.n_components-1]:.3f}")
