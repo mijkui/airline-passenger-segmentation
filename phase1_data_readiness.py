@@ -34,7 +34,7 @@ class DataReadinessPipeline:
     
     def drop_id_columns(self):
         """Drop ID-like columns that don't contribute to analysis."""
-        print("\n=== DROPPING ID COLUMNS ===")
+        print("\nDROPPING ID COLUMNS Dropping ID columns")
         
         # Identify ID-like columns
         id_columns = ['Unnamed: 0', 'id']
@@ -52,7 +52,7 @@ class DataReadinessPipeline:
     
     def analyze_missing_values(self):
         """Analyze missing values before and after imputation."""
-        print("\n=== MISSING VALUES ANALYSIS ===")
+        print("\nMISSING VALUES ANALYSIS Missing values analysis")
         
         # Before imputation
         print("Missing values BEFORE imputation:")
@@ -124,7 +124,7 @@ class DataReadinessPipeline:
     
     def one_hot_encode_categorical(self, categorical_cols):
         """One-hot encode categorical variables."""
-        print("\n=== ONE-HOT ENCODING CATEGORICAL VARIABLES ===")
+        print("\nOne-hot encoding categorical variables")
         
         # Store original categorical columns for reference
         self.categorical_columns = categorical_cols.copy()
@@ -164,7 +164,7 @@ class DataReadinessPipeline:
     
     def analyze_skewness(self, numeric_cols):
         """Analyze skewness of numeric variables."""
-        print("\n=== SKEWNESS ANALYSIS ===")
+        print("\nSkewness Analysis\n")
         
         skewness_data = []
         for col in numeric_cols:
@@ -182,7 +182,7 @@ class DataReadinessPipeline:
     
     def standardize_numeric_features(self, numeric_cols, skewness_df):
         """Standardize numeric features using appropriate scaling methods."""
-        print("\n=== STANDARDIZING NUMERIC FEATURES ===")
+        print("\nStandardizeing numeric features")
         
         # Separate highly skewed variables for robust scaling
         highly_skewed = skewness_df[skewness_df['Skew_Level'] == 'Highly Skewed']['Variable'].tolist()
@@ -211,7 +211,7 @@ class DataReadinessPipeline:
     
     def create_feature_summary_table(self, categorical_cols, numeric_cols, skewness_df):
         """Create comprehensive feature summary table."""
-        print("\n=== CREATING FEATURE SUMMARY TABLE ===")
+        print("\nCREATING FEATURE SUMMARY TABLE Creating feature summary table")
         
         feature_info = []
         
@@ -259,7 +259,7 @@ class DataReadinessPipeline:
     
     def create_correlation_heatmap(self):
         """Create correlation heatmap of numeric features."""
-        print("\n=== CREATING CORRELATION HEATMAP ===")
+        print("\nCreating correlation heatmap")
         
         # Get numeric columns (excluding target)
         numeric_cols = self.train_df.select_dtypes(include=[np.number]).columns.tolist()
@@ -304,7 +304,7 @@ class DataReadinessPipeline:
     
     def create_distribution_plots(self, numeric_cols):
         """Create distribution plots before and after transformation."""
-        print("\n=== CREATING DISTRIBUTION PLOTS ===")
+        print("\nCreating distribution plots")
         
         # Load original data for comparison
         original_train = pd.read_csv('archive-2/train.csv')
@@ -336,7 +336,7 @@ class DataReadinessPipeline:
     
     def generate_missingness_report(self, missing_before):
         """Generate comprehensive missingness report."""
-        print("\n=== MISSINGNESS REPORT ===")
+        print("\nMissing report")
         
         missing_after = self.train_df.isnull().sum()
         
@@ -351,9 +351,9 @@ class DataReadinessPipeline:
         print(f"Total missing values: {missing_after.sum()}")
         
         if missing_after.sum() == 0:
-            print("✅ All missing values successfully handled!")
+            print("All missing values successfully handled!")
         else:
-            print("⚠️  Some missing values remain:")
+            print(" Some missing values remain:")
             for col in missing_after.index:
                 if missing_after[col] > 0:
                     print(f"  {col}: {missing_after[col]}")
@@ -362,7 +362,7 @@ class DataReadinessPipeline:
     
     def save_processed_data(self):
         """Save processed datasets."""
-        print("\n=== SAVING PROCESSED DATA ===")
+        print("\nDaving processed data")
         
         self.train_df.to_csv('train_processed.csv', index=False)
         self.test_df.to_csv('test_processed.csv', index=False)
