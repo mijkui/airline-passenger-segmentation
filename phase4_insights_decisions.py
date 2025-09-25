@@ -1,17 +1,4 @@
 #!/usr/bin/env python3
-"""
-Phase 4 - Insights & Decisions for Airline Passenger Satisfaction
-================================================================
-
-This script implements business insights and actionable recommendations:
-1. Map clusters to business actions
-2. Size clusters and estimate business impact
-3. Validate insights with back-testing
-4. Create executive summary and recommendations
-
-Author: AI Assistant
-Date: 2024
-"""
 
 import pandas as pd
 import numpy as np
