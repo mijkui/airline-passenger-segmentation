@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -70,7 +69,7 @@ class ClusteringAnalysis:
     
     def choose_feature_space(self):
         """Choose feature space for clustering analysis."""
-        print("\n=== CHOOSING FEATURE SPACE ===")
+        print("\nChoosing feature space")
         
         # Option 1: Use top K PCs (recommended)
         print("Option 1: Using PCA features (recommended)")
@@ -93,7 +92,7 @@ class ClusteringAnalysis:
     
     def run_kmeans_analysis(self, X, feature_space_name):
         """Run K-Means clustering for K=2..10."""
-        print(f"\n=== RUNNING K-MEANS ON {feature_space_name.upper()} FEATURES ===")
+        print(f"\nRunning K-Means on {feature_space_name.upper()} features")
         
         k_range = range(2, 11)
         results = {
@@ -139,7 +138,7 @@ class ClusteringAnalysis:
     
     def run_gmm_analysis(self, X, feature_space_name):
         """Run Gaussian Mixture Models with different covariance types."""
-        print(f"\n=== RUNNING GMM ON {feature_space_name.upper()} FEATURES ===")
+        print(f"\nRunning GMM on {feature_space_name.upper()} features")
         
         k_range = range(2, 11)
         covariance_types = ['diag', 'full']
@@ -187,7 +186,7 @@ class ClusteringAnalysis:
     
     def run_hierarchical_analysis(self, X, feature_space_name):
         """Run Hierarchical clustering with Ward linkage."""
-        print(f"\n=== RUNNING HIERARCHICAL CLUSTERING ON {feature_space_name.upper()} FEATURES ===")
+        print(f"\nRunning hierarchical clustering on {feature_space_name.upper()} features")
         
         k_range = range(2, 11)
         results = {
@@ -230,7 +229,7 @@ class ClusteringAnalysis:
     
     def run_dbscan_analysis(self, X, feature_space_name):
         """Run DBSCAN clustering."""
-        print(f"\n=== RUNNING DBSCAN ON {feature_space_name.upper()} FEATURES ===")
+        print(f"\nRunning dbscan on {feature_space_name.upper()} features")
         
         # Try different eps values
         eps_values = [0.5, 1.0, 1.5, 2.0, 2.5]
@@ -289,7 +288,7 @@ class ClusteringAnalysis:
     
     def create_elbow_plot(self, kmeans_results, feature_space_name):
         """Create elbow plot for K-Means results."""
-        print(f"\n=== CREATING ELBOW PLOT FOR {feature_space_name.upper()} ===")
+        print(f"\nCreating elbow plot for {feature_space_name.upper()}")
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
         
@@ -321,7 +320,7 @@ class ClusteringAnalysis:
     
     def create_gmm_plots(self, gmm_results, feature_space_name):
         """Create plots for GMM results."""
-        print(f"\n=== CREATING GMM PLOTS FOR {feature_space_name.upper()} ===")
+        print(f"\nCreating GMM plots for {feature_space_name.upper()}")
         
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
         
@@ -364,7 +363,7 @@ class ClusteringAnalysis:
     
     def stability_analysis(self, X, model, feature_space_name, n_bootstrap=50):
         """Perform stability analysis using bootstrap resampling."""
-        print(f"\n=== STABILITY ANALYSIS FOR {feature_space_name.upper()} ===")
+        print(f"\nStablility Analysis for {feature_space_name.upper()}")
         
         # Get original cluster assignments
         original_labels = model.fit_predict(X)
@@ -409,7 +408,7 @@ class ClusteringAnalysis:
     
     def separability_test(self, X, cluster_labels, feature_space_name):
         """Test cluster separability using supervised learning."""
-        print(f"\n=== SEPARABILITY TEST FOR {feature_space_name.upper()} ===")
+        print(f"\nSeperability test for {feature_space_name.upper()}")
         
         # Split data
         X_train, X_test, y_train, y_test = train_test_split(X, cluster_labels, test_size=0.3, random_state=42)
@@ -442,7 +441,7 @@ class ClusteringAnalysis:
     
     def profile_clusters(self, X, cluster_labels, feature_names, feature_space_name):
         """Profile clusters by analyzing their characteristics."""
-        print(f"\n=== CLUSTER PROFILING FOR {feature_space_name.upper()} ===")
+        print(f"\nCluster profiting for {feature_space_name.upper()}")
         
         # Create DataFrame with cluster labels
         if feature_space_name == 'PCA':
@@ -492,7 +491,7 @@ class ClusteringAnalysis:
         
         # Statistical tests for significant differences
         if feature_space_name == 'Original':
-            print(f"\n=== STATISTICAL TESTS ===")
+            print(f"\nStatistical tests")
             for feature in available_features:
                 if feature in df.columns:
                     groups = [df[df['cluster'] == i][feature].values for i in range(n_clusters)]
@@ -503,7 +502,7 @@ class ClusteringAnalysis:
     
     def name_clusters(self, cluster_stats, feature_space_name):
         """Name clusters based on their characteristics."""
-        print(f"\n=== CLUSTER NAMING FOR {feature_space_name.upper()} ===")
+        print(f"\nCluster naming for {feature_space_name.upper()}")
         
         cluster_names = {}
         
@@ -536,7 +535,7 @@ class ClusteringAnalysis:
     
     def create_cluster_visualizations(self, X, cluster_labels, feature_space_name, cluster_names):
         """Create comprehensive cluster visualizations."""
-        print(f"\n=== CREATING CLUSTER VISUALIZATIONS FOR {feature_space_name.upper()} ===")
+        print(f"\nCreating cluster visualizations for {feature_space_name.upper()}")
         
         if X.shape[1] < 2:
             print("Cannot create 2D visualizations - need at least 2 features")
