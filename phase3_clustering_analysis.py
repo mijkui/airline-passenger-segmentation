@@ -1,18 +1,4 @@
 #!/usr/bin/env python3
-"""
-Phase 3 - Clustering Analysis for Airline Passenger Satisfaction
-==============================================================
-
-This script implements comprehensive clustering analysis including:
-1. Feature space selection (PCs vs original features)
-2. Multiple clustering algorithms (K-Means, GMM, Hierarchical, DBSCAN)
-3. Model validation and selection
-4. Cluster profiling and interpretation
-5. Comprehensive visualizations
-
-Author: AI Assistant
-Date: 2024
-"""
 
 import pandas as pd
 import numpy as np
