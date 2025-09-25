@@ -268,9 +268,9 @@ class BusinessInsights:
         print(f"Satisfaction variation across clusters: {satisfaction_std:.1f}%")
         
         if satisfaction_std > 10:
-            print("✅ Clusters show meaningful differences in satisfaction")
+            print("Clusters show meaningful differences in satisfaction")
         else:
-            print("⚠️  Clusters may not differ significantly in satisfaction")
+            print("Clusters may not differ significantly in satisfaction")
         
         # 2. Practicality check
         print("\n2. Actionability Validation:")
@@ -282,9 +282,9 @@ class BusinessInsights:
         print("Features that airlines can directly control:")
         for feature in actionable_features:
             if feature in self.cluster_profiles.columns:
-                print(f"  ✅ {feature}")
+                print(f" {feature}")
             else:
-                print(f"  ❌ {feature} (not available)")
+                print(f"  {feature} (not available)")
         
         # 3. Cluster stability check
         print("\n3. Cluster Stability Validation:")
@@ -297,9 +297,9 @@ class BusinessInsights:
         print(f"Size ratio: {size_ratio:.1f}")
         
         if size_ratio < 5:
-            print("✅ Clusters are reasonably balanced")
+            print(" Clusters are reasonably balanced")
         else:
-            print("⚠️  Some clusters may be too small or too large")
+            print(" Some clusters may be too small or too large")
         
         return self
     
